@@ -28,15 +28,13 @@ void day_1()
 			file_input.close();
 		}
 
-		const int max_value = *std::max_element(elf_inventories.begin(), elf_inventories.end());
-		const auto max_value_iterator = std::find(elf_inventories.begin(), elf_inventories.end(), max_value);
+		const auto max_value_iterator = std::max_element(elf_inventories.begin(), elf_inventories.end());
 		const auto max_index = std::distance(elf_inventories.begin(), max_value_iterator);
+		printf("The Max Value Is: %d and has index: %llu\n", *max_value_iterator, max_index);
 
-		// Ascending sort 
+		// Ascending sort to get the last 3 highest values
 		std::sort(elf_inventories.begin(), elf_inventories.end());
 		const int top_three = std::accumulate(elf_inventories.end() - 3, elf_inventories.end(), 0);
-
-		printf("The Max Value Is: %d and has index: %llu\n", max_value, max_index);
 		printf("Top three total calories: %d", top_three);
 	}
 }
