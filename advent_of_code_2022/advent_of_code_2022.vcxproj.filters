@@ -13,9 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\day_1">
+      <UniqueIdentifier>{51b99dfb-429c-40ad-b804-10ef61355e89}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="day_1.txt">
+    <Text Include="day_1\day_1.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
@@ -23,13 +26,13 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="day_1.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="day_1\day_1.cpp">
+      <Filter>Source Files\day_1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="day_1.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="day_1\day_1.h">
+      <Filter>Source Files\day_1</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

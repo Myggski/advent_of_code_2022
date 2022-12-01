@@ -1,4 +1,4 @@
-#include "day_1.h"
+#include "day_1/day_1.h"
 
 int main()
 {
