@@ -93,20 +93,22 @@ namespace day_3
 			while (getline(file_input, text)) {
 				elf_index = row_index % 3;
 
+				// If it's the first elf in the team, create new team
 				if (elf_index == 0)
 				{
 					elf_teams.push_back(elf_team{});
 				}
 
+				// get the latest team and add current text to the current elf of the team
 				auto& current_team = elf_teams[elf_teams.size() - 1];
 				current_team.rucksack_items[elf_index] = text;
 
 				first_half = text.substr(0, text.length() / 2);
 				second_half = text.substr(text.length() / 2);
-				duplicate_characters = get_duplicates(first_half, second_half);
 
+				// Get all the duplicate characters and calculate the total value of the duplicate letters
+				duplicate_characters = get_duplicates(first_half, second_half);
 				total_value += std::accumulate(duplicate_characters.begin(), duplicate_characters.end(), 0, calculate_total_character_value);
-				// Calculate total sum
 
 				row_index++;
 			}
@@ -114,6 +116,7 @@ namespace day_3
 			file_input.close();
 		}
 
+		// Calculating the total value of the teams
 		const size_t team_total_value = std::accumulate(elf_teams.begin(), elf_teams.end(), 0, calculate_total_team_value);
 
 		printf("Total value: %llu\n", total_value);
