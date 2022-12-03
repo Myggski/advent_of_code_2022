@@ -1,6 +1,6 @@
 #pragma once
 
-namespace day_1
+namespace day_2
 {
 	void init();
 }
