@@ -74,7 +74,7 @@ namespace day_3
 	auto calculate_total_team_value = [](auto team_total_value, elf_team team)
 	{
 		const char team_duplicate = get_team_duplicate(team);
-		return calculate_character_value(team_total_value, team_duplicate);
+		return calculate_total_character_value(team_total_value, team_duplicate);
 	};
 
 
