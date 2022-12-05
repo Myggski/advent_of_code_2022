@@ -40,7 +40,7 @@ namespace day_5
 	void init()
 	{
 		std::ifstream file_input("day_5/day_5.txt");
-		std::vector<std::deque<char>> crates;
+		std::vector<std::string> crates{ "", "", "", "", "", "", "", "", "" };
 
 		if (file_input.is_open())
 		{
@@ -57,11 +57,51 @@ namespace day_5
 						std::stoi(words[5])
 						});
 				}
-				else {
+				else if (index < 8) {
+					for (int char_index = 1; char_index < text.size(); char_index += 4)
+					{
+						if (text[char_index] == ' ')
+							continue;
 
+						crates[char_index / 4].push_back(text[char_index]);
+					}
 				}
 
 				index++;
+			}
+
+			std::vector<std::string> crates_for_crate_mover_9001 = crates;
+
+			for (const auto& instruction : instructions)
+			{
+				auto& to_crate = crates[instruction.to_stack - 1];
+				auto& from_crate = crates[instruction.from_stack - 1];
+				auto& to_crate_mover_9001 = crates_for_crate_mover_9001[instruction.to_stack - 1];
+				auto& from_crate_mover_9001 = crates_for_crate_mover_9001[instruction.from_stack - 1];
+
+				for (int move = 0; move < instruction.crates_to_move; move++)
+				{
+					to_crate.insert(to_crate.begin(), from_crate[0]);
+					from_crate.erase(0, 1);
+				}
+
+
+				std::string part_to_move = from_crate_mover_9001.substr(0, instruction.crates_to_move);
+				from_crate_mover_9001.erase(0, instruction.crates_to_move);
+				to_crate_mover_9001.insert(0, part_to_move);
+
+			}
+
+			for (auto crate : crates)
+			{
+				printf("%c", crate[0]);
+			}
+
+			printf("\n");
+
+			for (auto crate : crates_for_crate_mover_9001)
+			{
+				printf("%c", crate[0]);
 			}
 		}
 	}
